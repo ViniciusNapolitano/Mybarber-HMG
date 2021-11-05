@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Admin My Barber</title>
+</head>
+<body>
+    
+<div class="painel">
+    <form action="" th:action="" method="POST" th:object="" >
+        <label for="nome">Nome</label>
+        <input type="text" th:field="*{nome}" name="nome" id="nome">
+
+        <label for="data">Data</label>
+        <input type="datetime-local" name="data" th:field="*{data}" id="data">
+
+        <label for="data">Serviço</label>
+        <select name="data" id="data">
+            <option th:field="*{nomeServico}" th:value="cabelo">Cabelo</option>
+            <option th:field="*{nomeServico}" th:value="barba">Barba</option>
+        </select>
+
+        <label for="barbeiro">barbeiro</label>
+        <select name="barbeiro" id="barbeiro">
+            <option th:field="*{nomeBarbeiro}" th:value="barbeiro1">barbeiro1</option>
+            <option th:field="*{nomeBarbeiro}" th:value="barbeiro2">barbeiro2</option>
+        </select>
+
+        <button type="submit">Agendar</button>
+
+    </form>
+</div>
+
+</body>
+</html>

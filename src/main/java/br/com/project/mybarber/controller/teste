@@ -1,0 +1,27 @@
+@GetMapping("/clientes")
+	public String clientesAgendados(Model model) {
+		model.addAttribute("listaClientes" , clienteRepository.findAll());
+		return "clientes/agendados";
+		
+
+	}
+	
+	@GetMapping("/clientes/agendar")
+	public String agendarCliente(@ModelAttribute("cliente") Cliente cliente) {
+		
+		return "clientes/formularioAgendamento";
+		
+	}
+	@GetMapping("clientes/obrigado")
+	public String obrigado() {
+		
+		return "clientes/obrigado";}
+	
+	
+	@PostMapping("/clientes/salvar")
+	public String salvarAgendamento(@ModelAttribute("cliente") Cliente cliente) {
+		
+		clienteRepository.save(cliente);
+		return "redirect:obrigado";
+		
+	}
